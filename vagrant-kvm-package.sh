@@ -68,6 +68,7 @@ sed -i "s/<memory>/<memory unit='KiB'>/" box.xml
 cat > metadata.json <<EOF
 {
     "provider": "libvirt",
+    "format": "qcow2",
     "virtual_size": 40
 }
 EOF
