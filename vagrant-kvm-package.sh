@@ -67,7 +67,7 @@ sed -i "s/<memory>/<memory unit='KiB'>/" box.xml
 
 cat > metadata.json <<EOF
 {
-    "provider": "kvm",
+    "provider": "libvirt",
     "virtual_size": 40
 }
 EOF
