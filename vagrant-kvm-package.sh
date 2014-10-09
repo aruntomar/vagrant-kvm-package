@@ -50,7 +50,8 @@ virt-install \
     --name $NAME \
     --ram $RAM --vcpus=$VCPUS \
     --disk path="$IMG",bus=virtio,format=qcow2 \
-    -w network=default,model=virtio > box.xml
+    -w network=LAN,model=virtio \
+    --graphics vnc --os-variant=ubuntutrusty > box.xml
 
 # extract the mac for the Vagrantfile
 MAC=$(cat box.xml | grep 'mac address' | cut -d\' -f2 | tr -d :)
@@ -67,9 +68,9 @@ sed -i "s/<memory>/<memory unit='KiB'>/" box.xml
 
 cat > metadata.json <<EOF
 {
-    "provider": "libvirt",
+    "provider": "kvm",
     "format": "qcow2",
-    "virtual_size": 40
+    "virtual_size": 60
 }
 EOF
 
