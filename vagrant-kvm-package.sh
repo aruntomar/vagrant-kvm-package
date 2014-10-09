@@ -50,7 +50,7 @@ virt-install \
     --name $NAME \
     --ram $RAM --vcpus=$VCPUS \
     --disk path="$IMG",bus=virtio,format=qcow2 \
-    -w network=LAN,model=virtio \
+    -w network=LAN,model=rtl8139 \
     --graphics vnc --os-variant=ubuntutrusty > box.xml
 
 # extract the mac for the Vagrantfile
